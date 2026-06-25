@@ -20,7 +20,7 @@ The interesting design problem isn't to pick an extreme, but to **get consistenc
 Hub & spoke isn't the only possible topology: it's a deliberate choice within a spectrum that runs from maximum control to maximum autonomy.
 
 <p align="center">
-  <img src="docs/en/diagram-1-spectrum.svg" alt="Spectrum of analytical topologies: monolith, Hub &amp; Spoke (pragmatic optimum) and pure federation" width="820">
+  <img src="docs/diagram-1-spectrum.svg" alt="Spectrum of analytical topologies: monolith, Hub &amp; Spoke (pragmatic optimum) and pure federation" width="820">
 </p>
 <div align="center"><sub>← more control&nbsp;&nbsp;·&nbsp;&nbsp;more autonomy →</sub></div>
 
@@ -40,7 +40,7 @@ Against **data mesh** —an organizational paradigm where each domain publishes 
 ## Architecture of the solution
 
 <p align="center">
-  <img src="docs/en/diagram-2-architecture.svg" alt="Layered architecture: data warehouse, governed layer (hub) and business domains (spokes) up to the users" width="820">
+  <img src="docs/diagram-2-architecture.svg" alt="Layered architecture: data warehouse, governed layer (hub) and business domains (spokes) up to the users" width="820">
 </p>
 
 ---
@@ -58,7 +58,7 @@ The difference that holds everything else up is subtle but decisive. **Governanc
 Policies stop being an agreement and become **code**. Access control on `users.email` can't be bypassed by omission: a spoke doesn't redefine it, it inherits it already governed; weakening it would require an explicit, reviewable override —exactly where review should concentrate—, and the ultimate access decision (the user attribute) is controlled by the admin, not by the spoke's LookML.
 
 <p align="center">
-  <img src="docs/en/diagram-3-governance.svg" alt="Governance by construction: the hub propagates policies to the spokes in one direction; the spokes cannot alter it" width="820">
+  <img src="docs/diagram-3-governance.svg" alt="Governance by construction: the hub propagates policies to the spokes in one direction; the spokes cannot alter it" width="820">
 </p>
 <div align="center"><sub>The hub's code is read-only to the spokes, which are also isolated from one another.</sub></div>
 
