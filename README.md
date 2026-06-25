@@ -1,3 +1,4 @@
+**Espa&ntilde;ol** · [English](README.en.md)
 # TheLook · Modelo Hub & Spoke en Looker
 ### Una capa semántica gobernada: gobernanza por construcción, no por convención
 
