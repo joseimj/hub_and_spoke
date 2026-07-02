@@ -1,4 +1,4 @@
-**English** · [Espa&ntilde;ol](README.md)
+**English** · [Espa&ntilde;ol](README.md) · [Français](README.fr.md)
 
 # TheLook · Hub & Spoke Model in Looker
 ### A governed semantic layer: governance by construction, not by convention
@@ -20,7 +20,7 @@ The interesting design problem isn't to pick an extreme, but to **get consistenc
 Hub & spoke isn't the only possible topology: it's a deliberate choice within a spectrum that runs from maximum control to maximum autonomy.
 
 <p align="center">
-  <img src="docs/diagram-1-spectrum.svg" alt="Spectrum of analytical topologies: monolith, Hub &amp; Spoke (pragmatic optimum) and pure federation" width="820">
+  <img src="docs/en/diagram-1-spectrum.svg" alt="Spectrum of analytical topologies: monolith, Hub &amp; Spoke (pragmatic optimum) and pure federation" width="820">
 </p>
 <div align="center"><sub>← more control&nbsp;&nbsp;·&nbsp;&nbsp;more autonomy →</sub></div>
 
@@ -40,7 +40,7 @@ Against **data mesh** —an organizational paradigm where each domain publishes 
 ## Architecture of the solution
 
 <p align="center">
-  <img src="docs/diagram-2-architecture.svg" alt="Layered architecture: data warehouse, governed layer (hub) and business domains (spokes) up to the users" width="820">
+  <img src="docs/en/diagram-2-architecture.svg" alt="Layered architecture: data warehouse, governed layer (hub) and business domains (spokes) up to the users" width="820">
 </p>
 
 ---
@@ -58,7 +58,7 @@ The difference that holds everything else up is subtle but decisive. **Governanc
 Policies stop being an agreement and become **code**. Access control on `users.email` can't be bypassed by omission: a spoke doesn't redefine it, it inherits it already governed; weakening it would require an explicit, reviewable override —exactly where review should concentrate—, and the ultimate access decision (the user attribute) is controlled by the admin, not by the spoke's LookML.
 
 <p align="center">
-  <img src="docs/diagram-3-governance.svg" alt="Governance by construction: the hub propagates policies to the spokes in one direction; the spokes cannot alter it" width="820">
+  <img src="docs/en/diagram-3-governance.svg" alt="Governance by construction: the hub propagates policies to the spokes in one direction; the spokes cannot alter it" width="820">
 </p>
 <div align="center"><sub>The hub's code is read-only to the spokes, which are also isolated from one another.</sub></div>
 
@@ -120,7 +120,7 @@ spoke-marketing/ · spoke-operations/
 ### Option A — Production (3 repos, recommended)
 1. Fork this repo and split it into three repositories (one per folder); each folder's contents go at the **root** of its repo.
 2. Create **3 LookML projects** in Looker and connect them to their repos via Git.
-3. **Lock down the hub:** protect its branch and limit PRs to a small group of developers.
+3. **Lock down the hub:** protect its branch and limit PRs to a small group of developers. → Per platform: **[GitHub](docs/en/protecting-the-hub.md)** · **[GitLab / Bitbucket](docs/en/protecting-the-hub-gitlab-bitbucket.md)**.
 4. In each spoke, set the `remote_dependency` URL (already included) and the `ref` (branch, tag, or **commit SHA** for pinned versioning).
 5. **Credentials (private repos):** in the spoke's IDE, **Settings → Import Credentials**, copy the SSH deploy key and add it to the hub repo. Validate.
 6. Click **Update Dependencies** to pull the hub files (this generates `manifest_lock.lkml`, which **is** committed).

@@ -1,4 +1,5 @@
-**Espa&ntilde;ol** · [English](README.en.md)
+[English](README.en.md) · **Español** · [Français](README.fr.md)
+
 # TheLook · Modelo Hub & Spoke en Looker
 ### Una capa semántica gobernada: gobernanza por construcción, no por convención
 
@@ -119,7 +120,7 @@ spoke-marketing/ · spoke-operations/
 ### Opción A — Producción (3 repos, recomendado)
 1. Forkea este repo y divídelo en tres repositorios (uno por carpeta); el contenido de cada carpeta va en la **raíz** de su repo.
 2. Crea **3 proyectos LookML** en Looker y conéctalos por Git a sus repos.
-3. **Blinda el hub:** protege su rama y limita los PRs a un grupo reducido de desarrolladores.
+3. **Blinda el hub:** protege su rama y limita los PRs a un grupo reducido de desarrolladores. → Guías por plataforma: **[GitHub](docs/protecting-the-hub.md)** · **[GitLab / Bitbucket](docs/protecting-the-hub-gitlab-bitbucket.md)**.
 4. En cada spoke, ajusta la URL del `remote_dependency` (ya incluido) y el `ref` (rama, tag o **commit SHA** para versionado fijo).
 5. **Credenciales (repos privados):** en el IDE del spoke, **Settings → Import Credentials**, copia la deploy key SSH y añádela al repo del hub. Valida.
 6. Pulsa **Update Dependencies** para traer los archivos del hub (se genera `manifest_lock.lkml`, que **sí** se commitea).
